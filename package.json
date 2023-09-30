@@ -4,9 +4,14 @@
   "description": "Prueba técnica QA para Mirai",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test"
     "pretest": "rm -r ./reports || true",
+    "test": "cross-env ENV=pro npx cucumber-js --config cucumber.js || true",
     "posttest": "npx ts-node src/support/helpers/reports/report.js",
+    "crearTarea": "cross-env ENV=pro npx cucumber-js --config cucumber.js --tags '@crearTarea'",
+    "editarTarea": "cross-env ENV=pro npx cucumber-js --config cucumber.js --tags '@editarTarea'",
+    "eliminarTarea": "cross-env ENV=pro npx cucumber-js --config cucumber.js --tags '@eliminarTarea'",
+    "filtrarTarea": "cross-env ENV=pro npx cucumber-js --config cucumber.js --tags '@filtrarTarea'",
+    "marcarTarea": "cross-env ENV=pro npx cucumber-js --config cucumber.js --tags '@marcarTarea'"
   },
   "keywords": [
     "QA",
