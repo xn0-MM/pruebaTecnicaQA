@@ -4,15 +4,41 @@
   "description": "Prueba técnica QA para Mirai",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test"
+    "pretest": "rm -r ./reports || true",
+    "test": "cross-env ENV=pro npx cucumber-js --config cucumber.js || true",
+    "posttest": "npx ts-node src/support/helpers/reports/report.js",
+    "crearTarea": "cross-env ENV=pro npx cucumber-js --config cucumber.js --tags '@crearTarea'",
+    "editarTarea": "cross-env ENV=pro npx cucumber-js --config cucumber.js --tags '@editarTarea'",
+    "eliminarTarea": "cross-env ENV=pro npx cucumber-js --config cucumber.js --tags '@eliminarTarea'",
+    "filtrarTarea": "cross-env ENV=pro npx cucumber-js --config cucumber.js --tags '@filtrarTarea'",
+    "marcarTarea": "cross-env ENV=pro npx cucumber-js --config cucumber.js --tags '@marcarTarea'"
   },
   "keywords": [
     "QA",
     "Playwright",
     "Typescript",
     "Cucumber",
-    "Gherkin"
+    "Gherkin",
+    "E2E"
   ],
   "author": "Chano Moreno Muñoz",
-  "license": "ISC"
+  "license": "LGPL-3.0-or-later",
+  "devDependencies": {
+    "@cucumber/cucumber": "^9.5.1",
+    "@cucumber/html-formatter": "^20.4.0",
+    "@cucumber/pretty-formatter": "^1.0.0",
+    "@playwright/test": "^1.38.1",
+    "@types/chai": "^4.3.6",
+    "@types/node": "^20.7.2",
+    "chai": "^4.3.10",
+    "cross-env": "^7.0.3",
+    "cucumber-console-formatter": "^1.0.0",
+    "cucumber-html-reporter": "^6.0.0",
+    "cucumber-pretty": "^6.0.1",
+    "dotenv": "^16.3.1",
+    "multiple-cucumber-html-reporter": "^3.5.0",
+    "playwright": "^1.38.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
 }
