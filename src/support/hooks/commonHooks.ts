@@ -4,6 +4,7 @@ import { Browser} from "playwright"
 import { ICustomWorld } from "../worlds/world"
 import { Pom } from "../../pages/pom"
 import { getEnv } from "../helpers/env/env";
+import { browserManager } from "../helpers/browsers/browserManager";
 import config from '../../../config';
   
   setDefaultTimeout(config.defaultTimeout)
@@ -12,6 +13,7 @@ import config from '../../../config';
   
   BeforeAll(async function () {
     getEnv()
+    browser = await browserManager()
   })
   
   Before(async function (this: ICustomWorld) {
