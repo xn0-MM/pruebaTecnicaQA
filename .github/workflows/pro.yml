@@ -41,7 +41,7 @@ jobs:
         run: npm run test:test
 
       - name: Crear el reporte HTML
-        run: npm run test:test
+        run: npm run posttest
 
       - name: Subir los resultados
         uses: actions/upload-pages-artifact@v2.0.0  
