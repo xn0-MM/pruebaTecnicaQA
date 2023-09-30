@@ -13,11 +13,25 @@ export class HomePage extends BasePage {
     public readonly todoList = this.page.locator('//html/body/section/section/ul/li')
     public readonly deleteButton = this.page.getByRole('button', { name: '×' })
 
+    async marcarTarea(tarea: string){
+        await this.page.locator('div').filter({ hasText: tarea }).getByRole('checkbox').click()
+    }
+
     async crearTarea(tarea: string){
         await this.textBox.fill(tarea)
         await this.textBox.press('Enter')
     }
-    
+
+    async editarTarea(tarea: string, nuevaTarea: string){
+        await this.page.getByText(tarea, {exact: true}).dblclick()
+        await this.page.locator('li').filter({ hasText: tarea }).getByRole('textbox').fill(nuevaTarea)
+        await this.page.locator('li').filter({ hasText: nuevaTarea }).getByRole('textbox').press('Enter');
+    }
+
+    async eliminarTarea(tarea: string){
+        await this.page.getByText(tarea, {exact: true}).hover()
+        await this.deleteButton.click();
+    }
 }
 
     
