@@ -1,7 +1,5 @@
 const config = require('./config')
 
-
-
 const cucumberConfig = {
   default: `
     --require-module ts-node/register
@@ -14,7 +12,6 @@ const cucumberConfig = {
     --format-options ${JSON.stringify({ snippetInterface: 'async-await' })}
     --parallel ${config.worker}
     src/test/features/*.feature
-    config.ts
   `
 }
 
