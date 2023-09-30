@@ -13,6 +13,22 @@ export class HomePage extends BasePage {
     public readonly todoList = this.page.locator('//html/body/section/section/ul/li')
     public readonly deleteButton = this.page.getByRole('button', { name: '×' })
 
+    async getNumberOfTareas(): Promise<number>{
+        return await this.todoList.count()
+    }
+
+    async getTituloByPosition(num: number): Promise<string>{
+        return await this.getTareaByPosition(num).innerText()
+    }
+
+    async getArrayTareas(): Promise<string[]>{
+        return await this.todoList.allInnerTexts()
+    }
+
+    getTareaByPosition= (num: number):Locator => {
+        return this.todoList.nth(num)
+    }
+
     async marcarTarea(tarea: string){
         await this.page.locator('div').filter({ hasText: tarea }).getByRole('checkbox').click()
     }
