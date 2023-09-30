@@ -131,3 +131,8 @@ dist
 
 # Reports Artifacts
 /reports
+
+.env*
+.flaskenv*
+!.env.project
+!.env.vault
