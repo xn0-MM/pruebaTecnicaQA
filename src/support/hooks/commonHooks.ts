@@ -3,6 +3,7 @@ import { After, AfterAll, Before, BeforeAll, setDefaultTimeout, Status } from "@
 import { Browser} from "playwright"
 import { ICustomWorld } from "../worlds/world"
 import { Pom } from "../../pages/pom"
+import { getEnv } from "../helpers/env/env";
 import config from '../../../config';
   
   setDefaultTimeout(config.defaultTimeout)
@@ -10,6 +11,7 @@ import config from '../../../config';
   let browser: Browser;
   
   BeforeAll(async function () {
+    getEnv()
   })
   
   Before(async function (this: ICustomWorld) {
