@@ -8,15 +8,17 @@ Feature: Crear tareas
     Given que el usuario se encuentra en la página principial de la aplicación
 
   Scenario: Añadir una tarea con éxito
-    When introduce el título de la tarea en el campo de texto: Hacer la compra
-    Then debería ver una tarea en la lista con el título escrito anteriomente: Hacer la compra
+    When introduce un título para la tarea en el campo de texto
+    Then debería ver una tarea en la lista con el título escrito anteriomente
+    And el número de tareas debe ser 1
 
   Scenario: Intentar añadir una tarea vacía
     When pulso la tecla enter sin introducir ningún título en el campo de texto
-    Then no se añade una nueva tarea
+    Then el número de tareas debe ser 0
 
   Scenario Outline: Añadir varias tareas
     When introduce las siguientes tareas <tareas>
+    Then debería ver tarjetas con los títulos: <tareas>
     Then debería ver <numExpectedTareas> tareas
 
     Examples: 
