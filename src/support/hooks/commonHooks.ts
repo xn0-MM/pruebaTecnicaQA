@@ -6,7 +6,8 @@ import { Pom } from "../../pages/pom"
 import { getEnv } from "../helpers/env/env";
 import { browserManager } from "../helpers/browsers/browserManager";
 import config from '../../../config';
-  
+import { captureScreenshot } from "../helpers/utils/utils";  
+
   setDefaultTimeout(config.defaultTimeout)
   
   let browser: Browser;
@@ -27,12 +28,13 @@ import config from '../../../config';
   
   After(async function (this: ICustomWorld , {pickle, result}) {
 
-    let img: Buffer
-    
-    if (result?.status == Status.FAILED) {
-        img = await this.page?.screenshot({ path: `./reports/screenshots/${pickle.name}.png`, type: "png" })!
-        this.attach( img, "image/png")
-    }
+    if (!config.screenshotByStep) {
+      if (config.screenshotsIfFail && result?.status === Status.FAILED) {
+          await captureScreenshot(this.page, pickle.name, this.attach);
+      } else if (!config.screenshotsIfFail) {
+          await captureScreenshot(this.page, pickle.name, this.attach);
+      }
+  }
 
     await this.context?.close()
     await this.page?.close()

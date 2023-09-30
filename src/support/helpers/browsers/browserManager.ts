@@ -1,10 +1,12 @@
 import { LaunchOptions, chromium, firefox, webkit } from "playwright-core";
-import config from '../../../../config';
+import * as config from '../../../../config';
 
 const options: LaunchOptions = {
     headless: config.headless,
-    slowMo: config.runSlow
+    slowMo: config.runSlow, 
+    timeout: config.pwTimeout
 }
+
 export const browserManager = () => {
     const browserType = config.browser || "chrome";
     switch (browserType) {
