@@ -27,6 +27,13 @@ import config from '../../../config';
   
   After(async function (this: ICustomWorld , {pickle, result}) {
 
+    let img: Buffer
+    
+    if (result?.status == Status.FAILED) {
+        img = await this.page?.screenshot({ path: `./reports/screenshots/${pickle.name}.png`, type: "png" })!
+        this.attach( img, "image/png")
+    }
+
     await this.context?.close()
     await this.page?.close()
   });

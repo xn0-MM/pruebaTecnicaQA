@@ -5,14 +5,17 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test"
+    "pretest": "rm -r ./reports || true",
+    "posttest": "npx ts-node src/support/helpers/reports/report.js",
   },
   "keywords": [
     "QA",
     "Playwright",
     "Typescript",
     "Cucumber",
-    "Gherkin"
+    "Gherkin",
+    "E2E"
   ],
   "author": "Chano Moreno Muñoz",
-  "license": "ISC"
+  "license": "LGPL-3.0-or-later",
 }
