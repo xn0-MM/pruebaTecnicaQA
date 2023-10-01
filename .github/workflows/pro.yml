@@ -40,6 +40,9 @@ jobs:
       - name: Ejecutar los tests
         run: npm run test:ci
 
+        env: 
+          ENV: 'pro'
+
       - name: Crear el reporte HTML
         run: npm run posttest
 
@@ -56,7 +59,7 @@ jobs:
         env:
           DOTENV_KEY: ${{ secrets.PT_CI }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ENV: "pro"
+
           
 
       
