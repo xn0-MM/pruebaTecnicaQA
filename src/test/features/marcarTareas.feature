@@ -16,8 +16,8 @@ Feature: Marcar tareas como completadas
     Examples: 
       | tareas                                                 | tareasMarcadas                       | numTareasMarcadas |
       | "Ir al super"                                          | "Ir al super"                        |                 1 |
-      | "Comprar pan, Arreglar la bici"                        | "Arreglar la bici"                   |                 1 |
-      | "Comprar Ibuprofeno, Comprar levadura, Ir al gimnasio" | "Comprar Ibuprofeno, Ir al gimnasio" |                 2 |
+      | "Comprar pan; Arreglar la bici"                        | "Arreglar la bici"                   |                 1 |
+      | "Comprar Ibuprofeno; Comprar levadura; Ir al gimnasio" | "Comprar Ibuprofeno; Ir al gimnasio" |                 2 |
 
   Scenario Outline: Marcar todas las tareas como completadas
     And introduce las siguientes tareas <tareas>
@@ -28,5 +28,5 @@ Feature: Marcar tareas como completadas
     Examples: 
       | tareas                                                 | numTareasMarcadas |
       | "Ir al super"                                          |                 1 |
-      | "Comprar pan, Arreglar la bici"                        |                 2 |
-      | "Comprar Ibuprofeno, Comprar levadura, Ir al gimnasio" |                 3 |
+      | "Comprar pan; Arreglar la bici"                        |                 2 |
+      | "Comprar Ibuprofeno; Comprar levadura; Ir al gimnasio" |                 3 |

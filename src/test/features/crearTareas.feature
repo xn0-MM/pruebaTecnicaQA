@@ -23,5 +23,5 @@ Feature: Crear tareas
 
     Examples: 
       | tareas                                             | numExpectedTareas |
-      | "Hacer la compra, Ir al gimnasio"                  |                 2 |
-      | "Comprar entradas, Quedar con Juan, Tocar el bajo" |                 3 |
+      | "Hacer la compra; Ir al gimnasio"                  |                 2 |
+      | "Comprar entradas; Quedar con Juan; Tocar el bajo" |                 3 |

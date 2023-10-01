@@ -1,7 +1,7 @@
 import { Given, When, Then } from '@cucumber/cucumber'
 import { ICustomWorld } from '../../support/worlds/world'
 import { expect } from 'chai'
-import { captureScreenshotByStep} from '../../support/helpers/utils/utils'
+import { captureScreenshotByStep, splitArray} from '../../support/helpers/utils/utils'
 
 Given('la tarea está marcada como completada', async function (this: ICustomWorld) {
     await this.pom?.homePage.marcarTarea('Hacer la compra')
@@ -14,7 +14,7 @@ Given('la tarea {string} está marcada como completada', async function (this: I
 })
 
 Given('las tareas {string} están marcadas como completadas', async function (this: ICustomWorld, tareas: string) {
-    const arrayTareasEsperadas = tareas.split(",").map(tareas => tareas.trim())
+    const arrayTareasEsperadas = splitArray(tareas)
 
     for(const tarea of arrayTareasEsperadas){
         await this.pom?.homePage.marcarTarea(tarea)
@@ -59,7 +59,7 @@ Then('el numero de tareas restantes debe ser {int}', async function (this: ICust
 
 Then('las tareas {string} deberian ser eliminadas de la lista', async function (this: ICustomWorld, tareas: string) {
     const arrayTareas = await this.pom?.homePage.getArrayTareas()
-    const arrayTareasEsperadas = tareas.split(",").map(tareas => tareas.trim())
+    const arrayTareasEsperadas = splitArray(tareas)
 
     expect(arrayTareas).to.not.include.members(arrayTareasEsperadas)
     await captureScreenshotByStep(this.page, this.attach)

@@ -18,7 +18,8 @@ Feature: Editar tareas
     Then la tarea debería mostrarse con el título actualizado: <nuevaTarea>
 
     Examples: 
-      | tareas                                                     | tarea             | nuevaTarea                                   |
-      | "Hacer la compra"                                          | "Hacer la compra" | "Arreglar el coche"                          |
-      | "Hacer la compra, Ir al gimnasio"                          | "Hacer la compra" | "Hacer la compra: Pan, huevos, leche aceite" |
-      | "Comprar entradas Reguera, Quedar con Paco, Tocar el bajo" | "Quedar con Paco" | "Quedar con Paco a las 9"                    |
+      | tareas                                                     | tarea                            | nuevaTarea                                            |
+      | "Hacer la compra"                                          | "Hacer la compra"                | "Arreglar el coche"                                   |
+      | "Hacer la compra; Ir al gimnasio"                          | "Hacer la compra"                | "Hacer la compra: Pan, huevos, leche aceite"          |
+      | "Comprar entradas Reguera; Quedar con Paco; Tocar el bajo" | "Quedar con Paco"                | "Quedar con Paco a las 9"                             |
+      | "Comprar entradas Reguera; Quedar con Paco; Tocar el bajo" | "Quedar con Paco; Tocar el bajo" | "Quedar con Paco a las 9; Tocar el bajo de 5 cuerdas" |

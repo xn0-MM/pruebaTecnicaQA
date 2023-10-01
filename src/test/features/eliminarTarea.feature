@@ -26,8 +26,8 @@ Feature: Eliminar tareas
 
     Examples: 
       | tareas                                             | tarea             | numExpectedTareas |
-      | "Hacer la compra, Ir al gimnasio"                  | "Ir al gimnasio"  |                 1 |
-      | "Comprar entradas, Quedar con Juan, Tocar el bajo" | "Quedar con Juan" |                 2 |
+      | "Hacer la compra; Ir al gimnasio"                  | "Ir al gimnasio"  |                 1 |
+      | "Comprar entradas; Quedar con Juan; Tocar el bajo" | "Quedar con Juan" |                 2 |
 
   Scenario Outline: eliminar una tarea marcada como completada con varias tareas creadas
     And introduce las siguientes tareas <tareas>
@@ -38,8 +38,8 @@ Feature: Eliminar tareas
 
     Examples: 
       | tareas                                             | tarea             | numExpectedTareas |
-      | "Hacer la compra, Ir al gimnasio"                  | "Ir al gimnasio"  |                 1 |
-      | "Comprar entradas, Quedar con Juan, Tocar el bajo" | "Quedar con Juan" |                 2 |
+      | "Hacer la compra; Ir al gimnasio"                  | "Ir al gimnasio"  |                 1 |
+      | "Comprar entradas; Quedar con Juan; Tocar el bajo" | "Quedar con Juan" |                 2 |
 
   Scenario Outline: eliminar varias tareas marcadas como completadas con varias tareas creadas
     And introduce las siguientes tareas <tareas>
@@ -50,5 +50,5 @@ Feature: Eliminar tareas
 
     Examples: 
       | tareas                                                               | tareasMarcadas                    | numExpectedTareas |
-      | "Hacer la compra, Ir al gimnasio, Concierto en el gran Baba"         | "Ir al gimnasio, Hacer la compra" |                 1 |
-      | "Comprar entradas, Quedar con Juan, Tocar el bajo, Vacunar al perro" | "Quedar con Juan, Tocar el Bajo"  |                 2 |
+      | "Hacer la compra; Ir al gimnasio; Concierto en el gran Baba"         | "Ir al gimnasio; Hacer la compra" |                 1 |
+      | "Comprar entradas; Quedar con Juan; Tocar el bajo; Vacunar al perro" | "Quedar con Juan; Tocar el Bajo"  |                 2 |
