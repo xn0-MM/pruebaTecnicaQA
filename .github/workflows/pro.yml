@@ -38,7 +38,7 @@ jobs:
         run: npx playwright install
 
       - name: Ejecutar los tests
-        run: npm run test:test
+        run: npm run test:ci
 
       - name: Crear el reporte HTML
         run: npm run posttest

@@ -6,7 +6,7 @@
   "scripts": {
     "pretest": "rm -r ./reports || true",
     "test": "cross-env ENV=pro npx cucumber-js --config cucumber.js || true",
-    "test:test": "cross-env ENV=pro npx cucumber-js --config cucumber.js",
+    "test:ci": "ENV=pro npx cucumber-js --config cucumber.js",
     "posttest": "npx ts-node src/support/helpers/reports/report.js",
     "crearTarea": "cross-env ENV=pro npx cucumber-js --config cucumber.js --tags '@crearTarea'",
     "editarTarea": "cross-env ENV=pro npx cucumber-js --config cucumber.js --tags '@editarTarea'",
