@@ -8,7 +8,7 @@ Feature: Marcar tareas como completadas
     Given que el usuario se encuentra en la página principial de la aplicación
 
   Scenario Outline: Marcar una tarea como completada
-    And introduce las siguientes tareas <tareas>
+    And el usuario crea las siguientes tareas <tareas>
     When las tareas <tareasMarcadas> están marcadas como completadas
     Then deberían aparecer las tareas <tareasMarcadas> marcadas
     Then deberían aparecer <numTareasMarcadas> tareas marcadas
@@ -20,7 +20,7 @@ Feature: Marcar tareas como completadas
       | "Comprar Ibuprofeno; Comprar levadura; Ir al gimnasio" | "Comprar Ibuprofeno; Ir al gimnasio" |                 2 |
 
   Scenario Outline: Marcar todas las tareas como completadas
-    And introduce las siguientes tareas <tareas>
+    And el usuario crea las siguientes tareas <tareas>
     When hace click en el botón Mark all as completed
     Then deberían aparecer las tareas <tareas> marcadas
     Then deberían aparecer <numTareasMarcadas> tareas marcadas

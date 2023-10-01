@@ -8,12 +8,12 @@ Feature: Editar tareas
     Given que el usuario se encuentra en la página principial de la aplicación
 
   Scenario: Editar una tarea existente
-    And introduce un título para la tarea en el campo de texto
+    And el usuario crea una tarea con el título "Hacer la compra"
     When el usuario hace doble click en la tarea e introduce un nuevo título
-    Then la tarea debería mostrarse con el título actualizado
+    Then debería ver la tarea en la lista con el título: "Hacer la compra en el Lidl"
 
   Scenario Outline: Editar una tarea existente con varias tareas ya creadas
-    And introduce las siguientes tareas <tareas>
+    And el usuario crea las siguientes tareas <tareas>
     When el usuario hace doble click en la tarea <tarea> e introduce una nueva tarea <nuevaTarea>
     Then la tarea debería mostrarse con el título actualizado: <nuevaTarea>
 
