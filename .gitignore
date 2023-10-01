@@ -133,6 +133,7 @@ dist
 /reports
 
 .env*
+.env.me
 .flaskenv*
 !.env.project
 !.env.vault
