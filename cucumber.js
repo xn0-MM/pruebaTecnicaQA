@@ -23,7 +23,6 @@ const config = require('./config')
       --require src/**/*.steps.ts
       --require src/**/*.ts
       --format progress-bar 
-      --format json:reports/cucumber-report.json
       --format @cucumber/pretty-formatter
       --format-options ${JSON.stringify({ snippetInterface: 'async-await' })}
       ${parallelOption}
