@@ -6,9 +6,11 @@ const config = {
   runSlow: 0, 
   pwTimeout: 40 * 1000,
   screenshotsIfFail: false,
-  worker: 1,
   screenshotByStep: true,
-  parallel: false
+  parallel: false,
+  worker: 1,
+  retry: false,
+  numberOfRetrys: 1
 }
   
 module.exports = config;

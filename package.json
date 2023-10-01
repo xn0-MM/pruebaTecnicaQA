@@ -7,12 +7,13 @@
     "pretest": "rm -r ./reports || true",
     "test": "cross-env ENV=pro npx cucumber-js --config cucumber.js || true",
     "test:ci": "npx cucumber-js --config cucumber.js",
+    "test:failed": "npx cucumber-js -p rerun @rerun.txt",
     "posttest": "npx ts-node src/support/helpers/reports/report.js",
     "crearTarea": "cross-env ENV=pro npx cucumber-js --config cucumber.js --tags '@crearTarea'",
     "editarTarea": "cross-env ENV=pro npx cucumber-js --config cucumber.js --tags '@editarTarea'",
     "eliminarTarea": "cross-env ENV=pro npx cucumber-js --config cucumber.js --tags '@eliminarTarea'",
     "filtrarTarea": "cross-env ENV=pro npx cucumber-js --config cucumber.js --tags '@filtrarTarea'",
-    "marcarTarea": "cross-env ENV=pro npx cucumber-js --config cucumber.js --tags '@marcarTarea'"
+    "marcarTarea": "cross-env ENV=pro npx cucumber-js --config cucumber.js --tags '@marcarTareas'"
   },
   "keywords": [
     "QA",
