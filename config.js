@@ -1,6 +1,6 @@
 const config = {
-  baseUrl: process.env.BASE_URL || 'https://todomvc.com/examples/vue/',
-  browser: process.env.BROWSER || 'chrome', 
+  baseUrl: 'https://todomvc.com/examples/vue/',
+  browser: 'chrome', 
   defaultTimeout: 60 * 1000, // milliseconds
   headless: true,
   runSlow: 0, 
