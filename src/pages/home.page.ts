@@ -10,9 +10,10 @@ export class HomePage extends BasePage {
     public readonly clearCompletedButton = this.page.getByRole('button', { name: 'Clear completed' })
     public readonly markAllCompletedButton = this.page.getByText('Mark all as complete')
     public readonly itemsLeft = this.page.getByText('All Active Completed')
-    public readonly todoList = this.page.locator('//html/body/section/section/ul/li')
+    public readonly todoList = this.page.locator('body > section > section > ul > li.todo')
     public readonly completedTodoList = this.page.locator('body > section > section > ul > li.todo.completed')
     public readonly deleteButton = this.page.getByRole('button', { name: '×' })
+    public readonly counter = this.page.locator('//html/body/section/footer/span/strong')
 
     async getNumberOfTareas(): Promise<number>{
         return await this.todoList.count()
