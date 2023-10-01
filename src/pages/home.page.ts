@@ -11,10 +11,15 @@ export class HomePage extends BasePage {
     public readonly markAllCompletedButton = this.page.getByText('Mark all as complete')
     public readonly itemsLeft = this.page.getByText('All Active Completed')
     public readonly todoList = this.page.locator('//html/body/section/section/ul/li')
+    public readonly completedTodoList = this.page.locator('body > section > section > ul > li.todo.completed')
     public readonly deleteButton = this.page.getByRole('button', { name: '×' })
 
     async getNumberOfTareas(): Promise<number>{
         return await this.todoList.count()
+    }
+
+    async getNumberOfTareasCompletadas(): Promise<number>{
+        return await this.completedTodoList.count()
     }
 
     async getTituloByPosition(num: number): Promise<string>{
@@ -25,7 +30,11 @@ export class HomePage extends BasePage {
         return await this.todoList.allInnerTexts()
     }
 
-    getTareaByPosition= (num: number):Locator => {
+    async getArrayTareasCompletadas(): Promise<string[]>{
+        return await this.completedTodoList.allInnerTexts()
+    }
+
+    getTareaByPosition(num: number):Locator{
         return this.todoList.nth(num)
     }
 
