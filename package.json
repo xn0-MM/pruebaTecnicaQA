@@ -13,7 +13,8 @@
     "editarTarea": "cross-env ENV=pro npx cucumber-js --config cucumber.js --tags '@editarTarea'",
     "eliminarTarea": "cross-env ENV=pro npx cucumber-js --config cucumber.js --tags '@eliminarTarea'",
     "filtrarTarea": "cross-env ENV=pro npx cucumber-js --config cucumber.js --tags '@filtrarTarea'",
-    "marcarTarea": "cross-env ENV=pro npx cucumber-js --config cucumber.js --tags '@marcarTareas'"
+    "marcarTarea": "cross-env ENV=pro npx cucumber-js --config cucumber.js --tags '@marcarTareas'",
+    "contadorTarea": "cross-env ENV=pro npx cucumber-js --config cucumber.js --tags '@contadorTarea'"
   },
   "keywords": [
     "QA",
