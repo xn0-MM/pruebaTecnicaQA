@@ -51,13 +51,6 @@ jobs:
 
           DOTENV_KEY: ${{ secrets.PT_CI }}
 
-      - name: Ejecutar los tests fallidos
-        run: npm run test:failed
-  
-        env: 
-          ENV: 'pro'
-          DOTENV_KEY: ${{ secrets.PT_CI }}
-
       - name: Crear el reporte HTML
         run: npm run posttest
 
