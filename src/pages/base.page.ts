@@ -1,4 +1,5 @@
 import type { Page, BrowserContext } from "@playwright/test";
+import config from "../../config";
 
 export abstract class BasePage {
 
@@ -11,7 +12,7 @@ export abstract class BasePage {
     }
 
     async goTo(link?: string) {
-        const url = link ? (process.env.BASE_URL! += link) : process.env.BASE_URL!
+        const url = link ? (config.baseUrl += link) : config.baseUrl
         return await this.page.goto(url)
     }
 }
