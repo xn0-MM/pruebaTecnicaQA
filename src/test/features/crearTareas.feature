@@ -8,8 +8,8 @@ Feature: Crear tareas
     Given que el usuario se encuentra en la página principial de la aplicación
 
   Scenario: Añadir una tarea con éxito
-    When introduce un título para la tarea en el campo de texto
-    Then debería ver una tarea en la lista con el título escrito anteriomente
+    When el usuario crea una tarea con el título "Hacer la compra"
+    Then debería ver una tarea en la lista con el título "Hacer la compra"
     And el número de tareas debe ser 1
 
   Scenario: Intentar añadir una tarea vacía
@@ -17,11 +17,11 @@ Feature: Crear tareas
     Then el número de tareas debe ser 0
 
   Scenario Outline: Añadir varias tareas
-    When introduce las siguientes tareas <tareas>
-    Then debería ver tarjetas con los títulos: <tareas>
+    When el usuario crea las siguientes tareas <tareas>
+    Then debería ver tareas en la lista con los títulos: <tareas>
     Then debería ver <numExpectedTareas> tareas
 
     Examples: 
       | tareas                                             | numExpectedTareas |
-      | "Hacer la compra, Ir al gimnasio"                  |                 2 |
-      | "Comprar entradas, Quedar con Juan, Tocar el bajo" |                 3 |
+      | "Hacer la compra; Ir al gimnasio"                  |                 2 |
+      | "Comprar entradas; Quedar con Juan; Tocar el bajo" |                 3 |

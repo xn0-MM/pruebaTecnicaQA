@@ -29,6 +29,10 @@ export const captureScreenshotByStep = async (
     }
 }
 
+export function splitArray(data: string): string[]{
+    const arrayData = data.split(";").map(data => data.trim())
+    return arrayData
+}
 
 
 function generateRandomString(length: number): string {
