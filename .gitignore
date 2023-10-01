@@ -137,3 +137,5 @@ dist
 .flaskenv*
 !.env.project
 !.env.vault
+
+@rerun.txt
