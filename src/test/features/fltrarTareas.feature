@@ -1,7 +1,7 @@
 @filtrarTarea
-Feature: Filtrar tareas
+Feature: Filtrar tareas según su estado
     Como usuario
-    Quiero poder filtrar las tareas según su estado
+    Quiero poder filtrar las tareas según su estado, completadas o activas
     Para mantener mi lista actualizada y organizada
 
   Background: 
