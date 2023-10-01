@@ -23,7 +23,7 @@ const config = require('./config')
     `
   }
 
-}
+
 
 
 module.exports = cucumberConfig
