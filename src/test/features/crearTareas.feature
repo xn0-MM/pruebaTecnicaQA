@@ -4,10 +4,8 @@ Feature: Crear tareas
     Quiero poder añadir nuevas tareas a mi lista
     Para recordar lo que necesito hacer
 
-  Background: 
-    Given que el usuario se encuentra en la página principial de la aplicación
-
   Scenario Outline: Añadir varias tareas
+    Given que el usuario se encuentra en la página principial de la aplicación
     When el usuario crea las siguientes tareas <tareas>
     Then debería ver tareas en la lista con los títulos: <tareasListadas>
     And debería ver <numExpectedTareas> tareas
