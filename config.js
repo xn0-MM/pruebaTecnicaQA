@@ -6,6 +6,8 @@ const config = {
   runSlow: 0, 
   pwTimeout: 40 * 1000,
   screenshotsIfFail: false,
+  screenshots: true,
+  screenshotsOnlyWhenFail: false,
   screenshotByStep: true,
   parallel: false,
   worker: 1,

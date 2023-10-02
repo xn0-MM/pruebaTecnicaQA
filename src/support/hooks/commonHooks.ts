@@ -27,15 +27,12 @@ import { captureScreenshot } from "../helpers/utils/utils";
   });
   
   After(async function (this: ICustomWorld , {pickle, result}) {
-
-    if (!config.screenshotByStep) {
-      if (config.screenshotsIfFail && result?.status === Status.FAILED) {
-          await captureScreenshot(this.page, pickle.name, this.attach);
-      } else if (!config.screenshotsIfFail) {
+    if (config.screenshots) {
+      if ((config.screenshotsOnlyWhenFail && result?.status === Status.FAILED && !config.screenshotByStep) || !config.screenshotsOnlyWhenFail && !config.screenshotByStep) {
           await captureScreenshot(this.page, pickle.name, this.attach);
       }
-  }
-
+    }
+  
     await this.context?.close()
     await this.page?.close()
   });

@@ -3,7 +3,6 @@ import { BrowserContext, Page, PlaywrightTestOptions } from '@playwright/test';
 import { Pom } from '../../pages/pom';
 
 
-
 export interface ICustomWorld extends World {
   context?: BrowserContext
   page?: Page

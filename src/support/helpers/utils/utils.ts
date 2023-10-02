@@ -30,8 +30,10 @@ export const captureScreenshotByStep = async (
 }
 
 export function splitArray(data: string): string[]{
-    const arrayData = data.split(";").map(data => data.trim())
-    return arrayData
+    return data.split(";")
+        .map(item => item.trim())  
+        .filter(item => item !== "" && item !== undefined) 
+        .map(item => item.endsWith(";") ? item.slice(0, -1) : item);  // Elimina el ; al final, si existe
 }
 
 
