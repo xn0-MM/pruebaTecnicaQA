@@ -13,6 +13,7 @@ Feature: Editar tareas
 
     Examples: 
       | tareas                                                     | tarea                            | nuevaTarea                                   | numExpectedTareas |
+      | "Hacer la compra"                                          | "Hacer la compra"                | ""                                           |                 0 |
       | "Hacer la compra"                                          | "Hacer la compra"                | "Arreglar el coche"                          |                 1 |
       | "Hacer la compra; Ir al gimnasio"                          | "Hacer la compra"                | "Hacer la compra: Pan, huevos, leche aceite" |                 2 |
       | "Comprar entradas Reguera; Quedar con Paco; Tocar el bajo" | "Quedar con Paco; Tocar el bajo" | "Quedar con Paco a las 9; Ir a bolonia"      |                 3 |
