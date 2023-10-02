@@ -11,10 +11,10 @@ Las descripciones en Gherkin de las prácticas uno y dos se encuentran en este [
 
 ## Ejecución
 
-#### Para ejecutar el proyecto en local necesitamos:
-
+### Para ejecutar el proyecto en local necesitamos:
 
 * Clonar el proyecto  
+
 * Instalar las dependencias  
 
 ```shell
@@ -39,7 +39,7 @@ npm test
 npm run test:failed
 ```
 
-#### También existe la posibilidad de ejecutar las pruebas agrupadas por feature, usando alguno de los siguientes tags:
+También existe la posibilidad de ejecutar las pruebas agrupadas por feature, usando alguno de los siguientes tags:
 
 * crearTarea
 * editarTarea
