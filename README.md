@@ -1,69 +1,35 @@
 # PruebaTecnicaQA
 
-
 ## Descripcción
 El proyecto consiste en un framework de pruebas automatizadas sobre una web app [ToDo](https://todomvc.com/examples/vue/),
 el cual implementa BDD a través de Cucumber, también se usa Playwright como motor de automatización y Chai para las aserciones.
 
 
-## Alcance
+## Features
+Las descripciones en Gherkin de las prácticas uno y dos se encuentran en este [documento](features.md) y en los correspondientes archivos
+.feature que se encuentran en src/tests/features. Todos los escenarios se encuentran también en Qase, en este [enlace](https://app.qase.io/project/PC)
 
+## Configuraciones
+En el archivo .config situado en la raiz del proyecto se encuentran una serie de variables que permiten ajustar las siguientes funcionalidades:
+* **Url base:** A través de la variable de entorno URL podemos indicar la url base del proyecto.
+* **Captura de pantalla configurable:** Utilizando las variables screenshot, screenshotBySteps y screenshotIfFail, es posible ajustar las opciones de captura. Esto nos permite decidir si queremos capturar en cada paso, solamente al concluir el test en caso de fallo, o sin importar el resultado del test.
+* **Navegador configurable:** Con la variable de entorno BROWSER, podemos especificar si queremos que las pruebas se ejecuten en firefox, chrome o webkit
+* **Paralelización:** Utilizando las variables parallel y workers, se puede definir si se desea habilitar la ejecución paralela de las pruebas y establecer cuántos tests se ejecutarán al mismo tiempo.
+* **Headless:** Podemos especificar si queremos que se visualicen los tests al ejecutarse o no.
+* **RunSlow:** Con esta variable podemos especificar el tiempo de retardo entre las acciones, es útil si queremos visualizar las pruebas con cierta comodidad
+* **Timeouts**: Mediante las variables defaultTimeout y pwTimeout, se puede establecer el tiempo máximo antes de que un test sea considerado fallido, ya sea a nivel global o específicamente para las acciones de Playwright.
+* **Rerun y retry:** El proyecto está ajustado para crear un archivo rerun.txt si alguno de los tests falla, facilitando la reejecución únicamente de esas pruebas. En el entorno de CI, la reejecución está automatizada. Además, con las variables retry y numberOfRetrys, se puede determinar si los tests se reejecutarán automáticamente la cantidad de veces especificada, independientemente de si fallan.
+* **Reporte HTML:** El proyecto está configurado para producir un reporte HTML con la librería multiple-cucumber-html-reporter al concluir la ejecución. Además, mediante GitHub Actions, se ha establecido que tras cada commit a la rama 'main', estos resultados se publiquen automáticamente en [este](https://xn0-mm.github.io/pruebaTecnicaQA/) enlace.
 
 ## CI
+La suite de pruebas se integra en un proceso de integración continua (CI). Al hacer un commit en la rama main, se lleva a cabo el siguiente flujo:
 
-La batería de pruebas está implementada en un sencillo ciclo CI, en el que cada vez que se hace un commit a la rama main
-se instalan las dependencias necesarias, se cargan las variables de entorno encriptadas gracias a dotenv-vault y se ejecutan 
-las pruebas para posteriormente generar un reporte gracias a multiple-cucumber-html-reports y subirlo a github pages en este [enlace](https://xn0-mm.github.io/pruebaTecnicaQA/)
+* Se instalan las dependencias requeridas.
+* Se instalan los navegadores necesarios.
+* Se cargan las variables de entorno encriptadas mediante dotenv-vault.
+* Se ejecutan las pruebas. Si alguna falla, se reejecutan automáticamente las pruebas que no pasaron.
+* Finalmente, se genera un reporte utilizando multiple-cucumber-html-reports y se publica en GitHub Pages.
 
 
-# Práctica 2
 
-En la rama practica2 del proyecto, dentro  de src/tests/features se encuentra el archivo feature que describe la funcionalidad según los 
-criterios en el documento de la práctica. En cualquier caso los añado aquí mismo:
 
-## Feature: Asignar prioridades a los elementos de la lista
-_**Como usuario**_  
-_**Quiero** poder asignar prioridades a mis tareas_  
-_**Para** organizar mi trabajo según su importancia_  
-
-### Background:
-_**Given** que el usuario se encuentra en la página principal de la aplicación_  
-
-### Scenario Outline: Asignar prioridad al crear un elemento
-_**When** el usuario crea las siguientes tareas "tareas"_  
-_**Then** la tarea debería tener una prioridad media por defecto_  
-
-```plaintext
-Examples: 
-  | tarea                          | prioridadPorDefecto |
-  | "Ir al super"                  | media               |
-  | "Pagar la factura, Ir al cine" | media               |
-```
-### Scenario Outline: Cambiar la prioridad de un elemento
-_**Given** el usuario crea las siguientes tareas "tareas"_  
-_**When** el usuario cambia la prioridad de la tarea "tareasCambiadas" a "nuevaPrioridad"_  
-_**Then** las tareas "tarea" debería tener una prioridad de "nuevaPrioridad"_  
-
-```plaintext
-    Examples: 
-      | tarea                          | tareasCambiadas                | nuevaPrioridad |
-      | "Ir al super"                  | "Ir al super"                  | alta           |
-      | "Pagar la factura; Ir al cine" | "Pagar la factura"             | baja           |
-      | "Pagar la factura; Ir al cine" | "Pagar la factura; Ir al cine" | "baja; alta"   |
-```
-### Scenario Outline: Filtrar tareas por prioridad
-_**Given** el usuario crea las siguientes tareas "tareas"_  
- **And** el usuario cambia la prioridad de la tarea "tareasCambiadas" a "nuevaPrioridad"_  
-_**When** el usuario filtra las tareas por prioridad "filtro"_  
-_**Then** deberían aparecer las tareas "tareasResultantes"_  
-**And** debería ver "numTareasResultantes" tareas_  
-
-```plaintext
-    Examples: 
-      | tareas                                           | tareasCambiadas                | nuevaPrioridad | filtro | tareasResultantes                                | numTareasResultantes |
-      | "Ir al super; Pagar la factura; Hacer ejercicio" | "Ir al super"                  | alta           | todas  | "Ir al super; Pagar la factura; Hacer ejercicio" |                    3 |
-      | "Ir al super; Pagar la factura; Hacer ejercicio" | "Ir al super"                  | alta           | alta   | "Ir al super"                                    |                    1 |
-      | "Ir al super; Pagar la factura; Hacer ejercicio" | "Pagar la factura"             | baja           | baja   | "Pagar la factura"                               |                    1 |
-      | "Ir al super; Pagar la factura; Hacer ejercicio" | "Hacer ejercicio; Ir al super" | "baja; alta"   | media  | "Hacer ejercicio"                                |                    1 |
-      | "Ir al super; Pagar la factura; Hacer ejercicio" | "Hacer ejercicio; Ir al super" | "baja; baja"   | baja   | "Hacer ejercicio; Ir al super"                   |                    2 |
-```
