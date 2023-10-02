@@ -1,64 +1,66 @@
 # PruebaTecnicaQA
 
 ## Descripcción
+
 El proyecto consiste en un framework de pruebas automatizadas, las cuales comprueban las principales funcionalidades de una web app [ToDo](https://todomvc.com/examples/vue/). El framework implementa BDD a través de Cucumber, también se usa Playwright como motor de automatización y Chai para las aserciones.
 
 ## Features
+
 Las descripciones en Gherkin de las prácticas uno y dos se encuentran en este [documento](features.md) y en los correspondientes archivos
 .feature que se encuentran en src/tests/features. Todos los escenarios se encuentran también en Qase, en este [enlace](https://app.qase.io/project/PC)
 
 ## Ejecución
-* Para ejecutar el proyecto en local necesitamos:  
 
-    * Clonar el proyecto  
-    
-    * Instalar las dependencias 
-
-    ```plaintext 
-        npm install
-    ```
-
-    * Instalar los navegadores 
-
-     ```plaintext 
-        npx playwright install
-    ```
-    
-    * Ejecutar los tests, automáticamente se generará un reporte HTML al terminar la ejecución  
-
-     ```plaintext 
-        npm test
-    ```
-
-    * Si alguna  de las pruebas ha fallado podemos reejecutarlas con el siguiente comando
-
-     ```plaintext 
-        npm test:failed
-    ```
+#### Para ejecutar el proyecto en local necesitamos:
 
 
-    También existe la posibilidad de ejecutar las pruebas agrupadas por feature, usando alguno de los siguientes tags:
+* Clonar el proyecto  
+* Instalar las dependencias  
 
-    * crearTarea
-    * editarTarea
-    * eliminarTarea
-    * filtrarTarea
-    * marcarTarea
-    * contadorTarea  
+```shell
+npm install
+```
 
-    ```plaintext 
-        npm run test:"tag"
-    ```  
-    
+* Instalar los navegadores  
 
-* Para ejecutar los tests en CI:
-    Normalmente los tests se ejecutarán automáticamente al hacer un commit a la rama principal del proyecto, pero si queremos ejecutarla manualmente tenemos la opción en este [enlace](https://github.com/xn0-MM/pruebaTecnicaQA/actions/workflows/pro.yml), pulsando el botón "Run Workflow" en el encabezado de la lista.
+``` shell
+npx playwright install
+```
 
+* Ejecutar los tests, automáticamente se generará un reporte HTML al terminar la ejecución  
+
+```shell
+npm test
+```
+
+* Si alguna  de las pruebas ha fallado podemos reejecutarlas con el siguiente comando
+
+```shell
+npm run test:failed
+```
+
+#### También existe la posibilidad de ejecutar las pruebas agrupadas por feature, usando alguno de los siguientes tags:
+
+* crearTarea
+* editarTarea
+* eliminarTarea
+* filtrarTarea
+* marcarTarea
+* contadorTarea  
+
+```shell
+npm run test:"tag"
+```  
+
+### Para ejecutar los tests en CI:  
+
+Normalmente los tests se ejecutarán automáticamente al hacer un commit a la rama principal del proyecto, pero si queremos ejecutarla manualmente tenemos la opción en este [enlace](https://github.com/xn0-MM/pruebaTecnicaQA/actions/workflows/pro.yml), pulsando el botón "Run Workflow" en el encabezado de la lista.
 
 ## Configuraciones
 En el archivo .config situado en la raiz del proyecto se encuentran una serie de variables que permiten ajustar las siguientes funcionalidades:
 
-* **Url base:** A través de la variable de entorno URL podemos indicar la url base del proyecto.
+* **Url base:** A través de la variable de entorno BASE_URL podemos indicar la url base del proyecto.  
+
 * **Navegador configurable:** Con la variable de entorno BROWSER, podemos especificar si queremos que las pruebas se ejecuten en firefox, chrome o webkit
 * **Paralelización:** Utilizando las variables parallel y workers, se puede definir si se desea habilitar la ejecución paralela de las pruebas y establecer cuántos tests se ejecutarán al mismo tiempo.
 * **Headless:** Podemos especificar si queremos que se visualicen los tests al ejecutarse o no.
@@ -69,6 +71,7 @@ En el archivo .config situado en la raiz del proyecto se encuentran una serie de
 * **Reporte HTML:** El proyecto está configurado para producir un reporte HTML con la librería multiple-cucumber-html-reporter al concluir la ejecución. Además, mediante GitHub Actions, se ha establecido que tras cada commit a la rama 'main', estos resultados se publiquen automáticamente en [este](https://xn0-mm.github.io/pruebaTecnicaQA/) enlace.
 
 ## CI
+
 La suite de pruebas se integra en un proceso de integración continua (CI). Al hacer un commit en la rama main, se lleva a cabo el siguiente flujo:
 
 * Se instalan las dependencias requeridas.
@@ -76,7 +79,3 @@ La suite de pruebas se integra en un proceso de integración continua (CI). Al h
 * Se cargan las variables de entorno encriptadas mediante dotenv-vault.
 * Se ejecutan las pruebas. Si alguna falla, se reejecutan automáticamente las pruebas que no pasaron.
 * Finalmente, se genera un reporte utilizando multiple-cucumber-html-reports y se publica en GitHub Pages.
-
-
-
-
