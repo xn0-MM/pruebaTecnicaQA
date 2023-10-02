@@ -7,11 +7,11 @@ Feature: Marcar tareas como completadas
   Background: 
     Given que el usuario se encuentra en la página principial de la aplicación
 
-  Scenario Outline: Marcar una tarea como completada
-    And el usuario crea las siguientes tareas <tareas>
-    When las tareas <tareasMarcadas> están marcadas como completadas
-    Then deberían aparecer las tareas <tareasMarcadas> marcadas
-    Then deberían aparecer <numTareasMarcadas> tareas marcadas
+  Scenario Outline: Marcar una o varias tarea como completada
+    Given el usuario crea las siguientes tareas <tareas>
+    When el usuario marca como completadas las tareas <tareasMarcadas>
+    Then las tareas <tareasMarcadas> deberían estar marcadas como completadas
+    And el total de tareas marcadas como completadas debería ser <numTareasMarcadas>
 
     Examples: 
       | tareas                                                 | tareasMarcadas                       | numTareasMarcadas |
@@ -19,14 +19,14 @@ Feature: Marcar tareas como completadas
       | "Comprar pan; Arreglar la bici"                        | "Arreglar la bici"                   |                 1 |
       | "Comprar Ibuprofeno; Comprar levadura; Ir al gimnasio" | "Comprar Ibuprofeno; Ir al gimnasio" |                 2 |
 
-  Scenario Outline: Marcar todas las tareas como completadas
-    And el usuario crea las siguientes tareas <tareas>
+  Scenario Outline: Marcar todas las tareas como completadas con el botón de marcar todas como completadas
+    Given el usuario crea las siguientes tareas <tareas>
     When hace click en el botón Mark all as completed
-    Then deberían aparecer las tareas <tareas> marcadas
-    Then deberían aparecer <numTareasMarcadas> tareas marcadas
+    Then todas las tareas deberían estar marcadas como completadas
+    And el total de tareas marcadas como completadas debería ser <totalTareasMarcadas>
 
     Examples: 
-      | tareas                                                 | numTareasMarcadas |
-      | "Ir al super"                                          |                 1 |
-      | "Comprar pan; Arreglar la bici"                        |                 2 |
-      | "Comprar Ibuprofeno; Comprar levadura; Ir al gimnasio" |                 3 |
+      | tareas                                                 | totalTareasMarcadas |
+      | "Ir al super"                                          |                   1 |
+      | "Comprar pan; Arreglar la bici"                        |                   2 |
+      | "Comprar Ibuprofeno; Comprar levadura; Ir al gimnasio" |                   3 |

@@ -11,10 +11,14 @@ When('el usuario hace doble click en la tarea e introduce un nuevo título', asy
 
 When('el usuario hace doble click en la tarea {string} e introduce una nueva tarea {string}', async function (this: ICustomWorld, tareas: string, nuevasTareas: string) {
   const arrayTareas = splitArray(tareas)
-  const arrayNuevasTarreas = splitArray(nuevasTareas)
+  const arrayNuevasTareas = splitArray(nuevasTareas)
 
   for(let i = 0; i < arrayTareas.length; i++) {
-    await this.pom?.homePage.editarTarea(arrayTareas[i], arrayNuevasTarreas[i])
+    if(arrayTareas[i] !== "" ){
+      const tareaActual = arrayTareas[i];
+      const nuevaTarea = arrayNuevasTareas[i] !== undefined ? arrayNuevasTareas[i] : '';
+      await this.pom?.homePage.editarTarea(tareaActual, nuevaTarea);
+    }
   }
 
   await captureScreenshotByStep(this.page, this.attach)
