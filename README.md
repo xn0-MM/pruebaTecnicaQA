@@ -1,8 +1,7 @@
 # PruebaTecnicaQA
 
 ## Descripcción
-El proyecto consiste en un framework de pruebas automatizadas sobre una web app [ToDo](https://todomvc.com/examples/vue/),
-el cual implementa BDD a través de Cucumber, también se usa Playwright como motor de automatización y Chai para las aserciones.
+El proyecto consiste en un framework de pruebas automatizadas, las cuales comprueban las principales funcionalidades de una web app [ToDo](https://todomvc.com/examples/vue/). El framework implementa BDD a través de Cucumber, también se usa Playwright como motor de automatización y Chai para las aserciones.
 
 ## Features
 Las descripciones en Gherkin de las prácticas uno y dos se encuentran en este [documento](features.md) y en los correspondientes archivos
@@ -13,19 +12,19 @@ Las descripciones en Gherkin de las prácticas uno y dos se encuentran en este [
 
     * Clonar el proyecto  
     
-    * Instalar las dependencias con  
+    * Instalar las dependencias 
 
     ```plaintext 
         npm install
     ```
 
-    * Instalar los navegadores con  
+    * Instalar los navegadores 
 
      ```plaintext 
         npx playwright install
     ```
     
-    * Ejecutar los tests con el comando npm test, automáticamente se generará un reporte HTML al terminar la ejecución  
+    * Ejecutar los tests, automáticamente se generará un reporte HTML al terminar la ejecución  
 
      ```plaintext 
         npm test
@@ -38,7 +37,7 @@ Las descripciones en Gherkin de las prácticas uno y dos se encuentran en este [
     ```
 
 
-    También existe la posibilidad las pruebas agrupadas por feature, usando alguno de los siguientes tags:
+    También existe la posibilidad de ejecutar las pruebas agrupadas por feature, usando alguno de los siguientes tags:
 
     * crearTarea
     * editarTarea
@@ -53,7 +52,7 @@ Las descripciones en Gherkin de las prácticas uno y dos se encuentran en este [
     
 
 * Para ejecutar los tests en CI:
-    Normalmente los tests se ejecutaran automáticamente al hacer un commit a la rama principal del proyecto, pero si queremos ejecutarla manualmente tenemos la opción en este [enlace](https://github.com/xn0-MM/pruebaTecnicaQA/actions/workflows/pro.yml), pulsando el botón "Run Workflow" en el encabezado de la lista.
+    Normalmente los tests se ejecutarán automáticamente al hacer un commit a la rama principal del proyecto, pero si queremos ejecutarla manualmente tenemos la opción en este [enlace](https://github.com/xn0-MM/pruebaTecnicaQA/actions/workflows/pro.yml), pulsando el botón "Run Workflow" en el encabezado de la lista.
 
 
 ## Configuraciones
