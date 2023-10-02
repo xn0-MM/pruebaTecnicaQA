@@ -72,7 +72,7 @@ En el archivo .config situado en la raiz del proyecto se encuentran una serie de
 
 ## CI
 
-La suite de pruebas se integra en un proceso de integración continua (CI). Al hacer un commit en la rama main, se lleva a cabo el siguiente flujo:
+La suite de pruebas se integra en un flujo CI utilizando Github Actions. Al hacer un commit en la rama main, se inicia el siguiente flujo:
 
 * Se instalan las dependencias requeridas.
 * Se instalan los navegadores necesarios.
