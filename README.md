@@ -30,7 +30,7 @@ Las descripciones en Gherkin de las prácticas uno y dos se encuentran en este [
         npm test
     ```
 
-    * Si alguna prueba ha fallado podemos reejecutarlas con npm run test:failed  
+    * Si alguna  de las pruebas ha fallado podemos reejecutarlas con el siguiente comando
 
      ```plaintext 
         npm test:failed
@@ -47,7 +47,7 @@ Las descripciones en Gherkin de las prácticas uno y dos se encuentran en este [
     * contadorTarea  
 
     ```plaintext 
-        npm run test: "tag"
+        npm run test:"tag"
     ```  
     
 
@@ -65,7 +65,7 @@ En el archivo .config situado en la raiz del proyecto se encuentran una serie de
 * **RunSlow:** Con esta variable podemos especificar el tiempo de retardo entre las acciones, es útil si queremos visualizar las pruebas con cierta comodidad
 * **Timeouts**: Mediante las variables defaultTimeout y pwTimeout, se puede establecer el tiempo máximo antes de que un test sea considerado fallido, ya sea a nivel global o específicamente para las acciones de Playwright.
 * **Captura de pantalla configurable:** Utilizando las variables screenshot, screenshotBySteps y screenshotOnlyWhenFail, es posible ajustar las opciones de captura. Esto nos permite decidir si queremos capturar en cada paso, solamente al concluir el test en caso de fallo, o sin importar el resultado del test.
-* **Rerun y retry:** El proyecto está ajustado para crear un archivo rerun.txt si alguno de los tests falla, facilitando la reejecución únicamente de esas pruebas. En el entorno de CI, la reejecución está automatizada. Además, con las variables retry y numberOfRetrys, se puede determinar si los tests se reejecutarán automáticamente la cantidad de veces especificada, independientemente de si fallan.
+* **Rerun y retry:** El proyecto está ajustado para crear un archivo rerun.txt si alguno de los tests falla, facilitando la reejecución únicamente de esas pruebas. En el flujo CI, la reejecución está automatizada. Además, con las variables retry y numberOfRetrys, se puede determinar si los tests se reejecutarán automáticamente la cantidad de veces especificada, independientemente de si fallan.
 * **Reporte HTML:** El proyecto está configurado para producir un reporte HTML con la librería multiple-cucumber-html-reporter al concluir la ejecución. Además, mediante GitHub Actions, se ha establecido que tras cada commit a la rama 'main', estos resultados se publiquen automáticamente en [este](https://xn0-mm.github.io/pruebaTecnicaQA/) enlace.
 
 ## CI
