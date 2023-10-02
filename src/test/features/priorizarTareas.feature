@@ -7,7 +7,7 @@ Feature: Asignar prioridades a los elementos de la lista
   Background: 
     Given que el usuario se encuentra en la página principal de la aplicación
 
-  Scenario Outline: Asignar prioridad al crear un elemento
+  Scenario Outline:  Asignar prioridad cuando se crean uno o más elementos elementos
     When el usuario crea las siguientes tareas <tareas>
     Then las tareas <tareas> debería tener una prioridad media por defecto
 
