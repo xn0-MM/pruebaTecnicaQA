@@ -4,11 +4,9 @@ Feature: Editar tareas
     Quiero poder editar las tareas
     Para mantener las tareas actualizadas o corregir errores
 
-  Background: 
-    Given que el usuario se encuentra en la página principial de la aplicación
-
   Scenario Outline: Editar una o varias tareas
-    Given el usuario crea las siguientes tareas <tareas>
+    Given que el usuario se encuentra en la página principial de la aplicación
+    And el usuario crea las siguientes tareas <tareas>
     When el usuario hace doble click en la tarea <tarea> e introduce una nueva tarea <nuevaTarea>
     Then la tarea debería mostrarse con el título actualizado: <nuevaTarea>
     And el número de tareas restantes debe ser <numExpectedTareas>
