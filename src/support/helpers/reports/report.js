@@ -1,5 +1,7 @@
 const report = require("multiple-cucumber-html-reporter")
 
+const date = new Date()
+
 report.generate({
   jsonDir: "./reports/",
   reportPath: "./reports/",
@@ -24,7 +26,8 @@ report.generate({
     data: [
       { label: "Project", value: "Prueba Técnica" },
       { label: "Release", value: "1.0.0" },
-      { label: "Cycle", value: "THX1138" }
+      { label: "Cycle", value: "THX1138" },
+      { label: "Date", value: date }
     ],
   },
 });
