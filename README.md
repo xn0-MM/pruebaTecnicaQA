@@ -1,14 +1,14 @@
 # PruebaTecnicaQA
 
 
-##Descripcción
+## Descripcción
 El proyecto consiste en un framework de pruebas automatizadas sobre una web app [ToDo](https://todomvc.com/examples/vue/),
 el cual implementa BDD a través de Cucumber, también se usa Playwright como motor de automatización y Chai para las aserciones. 
 
-##Alcance
+## Alcance
 
 
-##CI
+## CI
 
 La batería de pruebas está implementada en un sencillo ciclo CI, en el que cada vez que se hace un commit a la rama main
 se instalan las dependencias necesarias, se cargan las variables de entorno encriptadas gracias a dotenv-vault y se ejecutan 
@@ -16,7 +16,10 @@ las pruebas para posteriormente generar un reporte gracias a multiple-cucumber-h
 
 
 
-#Práctica 2
+# Práctica 2
+
+En la rama practica2 del proyecto, dentro  de src/tests/features se encuentra el archivo feature que describe la funcionalidad según los 
+criterios en el documento de la práctica. En cualquier caso los añado aquí mismo:
 
 ## Feature: Asignar prioridades a los elementos de la lista
 _**Como usuario**_  
