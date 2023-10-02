@@ -2,7 +2,7 @@
 
 ## Descripcción
 
-El proyecto consiste en un framework de pruebas automatizadas, las cuales comprueban las principales funcionalidades de una web app [ToDo](https://todomvc.com/examples/vue/). El framework implementa BDD a través de Cucumber, también se usa Playwright como motor de automatización y Chai para las aserciones.
+El proyecto consiste en un framework de pruebas automatizadas, las cuales comprueban las principales funcionalidades de una web app [to do](https://todomvc.com/examples/vue/). El framework implementa BDD a través de Cucumber, también se usa Playwright como motor de automatización y Chai para las aserciones.
 
 ## Features
 
