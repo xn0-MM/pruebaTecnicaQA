@@ -2,7 +2,6 @@ import type { Page, BrowserContext } from "@playwright/test";
 import config from "../../config";
 
 export abstract class BasePage {
-
     page: Page
     context: BrowserContext
 
