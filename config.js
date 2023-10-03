@@ -8,10 +8,8 @@ const config = {
   screenshots: true,
   screenshotsOnlyWhenFail: false,
   screenshotByStep: true,
-  parallel: false,
-  worker: 1,
-  retry: false,
-  numberOfRetrys: 1
+  workers: 0,
+  retrys: 0
 }
   
 module.exports = config;

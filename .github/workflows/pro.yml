@@ -48,14 +48,6 @@ jobs:
 
         env: 
           ENV: 'pro'
-
-          DOTENV_KEY: ${{ secrets.PT_CI }}
-
-      - name: Ejecutar los tests fallidos
-        run: npm run test:failed
-  
-        env: 
-          ENV: 'pro'
           DOTENV_KEY: ${{ secrets.PT_CI }}
 
       - name: Crear el reporte HTML
@@ -73,6 +65,25 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
+
+      - name: Eliminar artefactos anteriores
+        run: rm -r ./reports 
+
+      - name: Ejecutar los tests fallidos
+        run: npm run test:rerunCI
+  
+        env: 
+          ENV: 'pro'
+          DOTENV_KEY: ${{ secrets.PT_CI }}
+
+      - name: Crear el reporte HTML
+        run: npm run posttest
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          # Upload entire repository
+          path: './reports'
         
 
           
