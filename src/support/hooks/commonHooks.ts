@@ -19,7 +19,7 @@ import { captureScreenshot } from "../helpers/utils/utils";
   
   Before(async function (this: ICustomWorld) {
     this.context = await browser.newContext({
-      viewport: { width: 1920, height: 1080 },
+      viewport: { width: config.viewport.width, height: config.viewport.height },
     });
 
     this.page = await this.context.newPage();
