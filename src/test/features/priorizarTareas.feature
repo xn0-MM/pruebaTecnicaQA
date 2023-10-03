@@ -1,5 +1,5 @@
 @asignarPrioridad
-Feature: Asignar prioridades a los elementos de la lista
+Feature: Priorizar tareas
     Como usuario
     Quiero poder asignar prioridades a mis tareas
     Para organizar mi trabajo según su importancia
