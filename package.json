@@ -6,8 +6,9 @@
   "scripts": {
     "pretest": "rm -r ./reports || true",
     "test": "cross-env ENV=pro npx cucumber-js --config cucumber.js || true",
-    "test:ci": "npx cucumber-js --config cucumber.js",
-    "test:failed": "npx cucumber-js -p rerun @rerun.txt",
+    "test:rerun": "npx cucumber-js -p rerun @rerun.txt",
+    "test:ci": "npx cucumber-js -p runCI",
+    "test:rerunCI":"npx cucumber-js -p rerunCI @rerun.txt",
     "posttest": "npx ts-node src/support/helpers/reports/report.js",
     "crearTarea": "cross-env ENV=pro npx cucumber-js --config cucumber.js --tags '@crearTarea'",
     "editarTarea": "cross-env ENV=pro npx cucumber-js --config cucumber.js --tags '@editarTarea'",
