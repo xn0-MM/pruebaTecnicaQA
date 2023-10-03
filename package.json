@@ -6,7 +6,7 @@
   "scripts": {
     "pretest": "rm -r ./reports || true",
     "test": "cross-env ENV=pro npx cucumber-js --config cucumber.js || true",
-    "test:rerun": "npx cucumber-js -p rerun @rerun.txt",
+    "test:rerun": "cross-env ENV=pro npx cucumber-js  @rerun.txt -p rerun",
     "test:ci": "npx cucumber-js -p runCI",
     "test:rerunCI":"npx cucumber-js -p rerunCI @rerun.txt",
     "posttest": "npx ts-node src/support/helpers/reports/report.js",
