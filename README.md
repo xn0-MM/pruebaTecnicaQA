@@ -69,6 +69,7 @@ En el archivo .config situado en la raiz del proyecto se encuentran una serie de
 * **Captura de pantalla configurable:** Utilizando las variables screenshot, screenshotBySteps y screenshotOnlyWhenFail, es posible ajustar las opciones de captura. Esto nos permite decidir si queremos capturar en cada paso, solamente al concluir el test en caso de fallo, o sin importar el resultado del test.
 * **Rerun y retry:** El proyecto está ajustado para crear un archivo rerun.txt si alguno de los tests falla, facilitando la reejecución únicamente de esas pruebas. En el flujo CI, sin embargo, utilizamos retry para asegurarnos de que un test no es flaky. Además, con las variables retry y numberOfRetrys, se puede determinar si los tests se reejecutarán automáticamente la cantidad de veces especificada.
 * **Reporte HTML:** El proyecto está configurado para producir un reporte HTML con la librería multiple-cucumber-html-reporter al concluir la ejecución. Además, mediante GitHub Actions, se ha establecido que tras cada commit a la rama 'main', estos resultados se publiquen automáticamente en [este](https://xn0-mm.github.io/pruebaTecnicaQA/) enlace.
+* **Viewport:** Mediante esta variable podemos establecer la resolución a la que se ejecután las pruebas
 
 ## CI
 
