@@ -9,7 +9,8 @@ const config = {
   screenshotsOnlyWhenFail: false,
   screenshotByStep: true,
   workers: 0,
-  retrys: 0
+  retrys: 0, 
+  viewport: { width: 1920, height: 1080 },
 }
   
 module.exports = config;
