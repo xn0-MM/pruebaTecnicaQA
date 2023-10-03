@@ -1,46 +1,49 @@
 const config = require('./config')
-  
-  const parallelOption = getParallelOption(config.parallel, config.worker)
-  const retryOption = getRetryOption(config.retry, config.numberOfRetrys)
 
-  const cucumberConfig = {
-    default: `
-      --require-module ts-node/register
-      --require src/**/*.steps.ts
-      --require src/**/*.ts
+const common = {
+  requireModule: ['ts-node/register'],
+  require: ['src/test/steps/*.steps.ts', 'src/**/*.ts'], 
+  paths: ['src/test/features'],
+
+  formatOptions: { snippetInterface: 'async-await' },
+ 
+}
       
-      --format progress-bar 
-      --format json:reports/cucumber-report.json
-      --format @cucumber/pretty-formatter
-      --format rerun:@rerun.txt
-      --format-options ${JSON.stringify({ snippetInterface: 'async-await' })}
-      src/test/features/*.feature
-      ${parallelOption}
-      ${retryOption}
-    `,
-    rerun: `
-      --require-module ts-node/register
-      --require src/**/*.steps.ts
-      --require src/**/*.ts
-      --format progress-bar 
-      --format @cucumber/pretty-formatter
-      --format-options ${JSON.stringify({ snippetInterface: 'async-await' })}
-      ${parallelOption}
-  `
+module.exports = {
+  default: {
+    ...common,
+    backtrace: true, 
+    retry: config.retrys,
+    parallel: config.workers,
+    format: ['@cucumber/pretty-formatter',
+    'json:reports/cucumber-report.json',
+    'rerun:@rerun.txt'
+   ]
+  },
+  rerun: {
+    ...common,
+    backtrace: true, 
+    retry: config.retrys,
+    parallel: config.workers,
+    format: ['@cucumber/pretty-formatter'],
+  },
+  runCI: {
+    ...common,
+    backtrace: true, 
+    retry: 0,
+    parallel: 0,
+    format: ['@cucumber/pretty-formatter',
+    'json:reports/cucumber-report.json',
+    'rerun:@rerun.txt'
+   ],
+  },
+  rerunCI: {
+    ...common,
+    backtrace: true, 
+    retry: 2,
+    parallel: 0,
+    format: ['@cucumber/pretty-formatter',
+    'json:reports/cucumber-report.json'
+   ]
   }
-
-  function getParallelOption(isParallel, config) {
-    if (isParallel) {
-        return `--parallel ${config}`;
-    }
-    return '';
-  }
-
-  function getRetryOption(isRetryActive, config) {
-    if (isRetryActive) {
-        return `--retry ${config}`;
-    }
-    return '';
-  }
-
-module.exports = cucumberConfig
+}
