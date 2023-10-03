@@ -3,7 +3,7 @@ const config = require('./config')
 const common = {
   requireModule: ['ts-node/register'],
   require: ['src/test/steps/*.steps.ts', 'src/**/*.ts'], 
-  formatOptions: { snippetInterface: 'async-await' }
+  formatOptions: { snippetInterface: 'async-await', colorsEnabled: true}
 }
       
 module.exports = {
