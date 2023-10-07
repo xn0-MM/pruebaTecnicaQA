@@ -32,8 +32,8 @@ export const captureScreenshotByStep = async (
 export function splitArray(data: string): string[]{
     return data.split(";")
         .map(item => item.trim())  
-        .filter(item => item !== "" && item !== undefined) 
-        .map(item => item.endsWith(";") ? item.slice(0, -1) : item);  // Elimina el ; al final, si existe
+        .filter(item => item !== "") 
+        .map(item => item.endsWith(";") ? item.slice(0, -1) : item)
 }
 
 
