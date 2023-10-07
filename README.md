@@ -7,7 +7,7 @@ El proyecto consiste en un framework de pruebas automatizadas, las cuales compru
 ## Features
 
 Las descripciones en Gherkin de las prácticas uno y dos se encuentran en este [documento](features.md) y en los correspondientes archivos
-.feature que se encuentran en src/tests/features. Todos los escenarios se encuentran también en Qase, en este [enlace](https://app.qase.io/project/PC)
+.feature que se encuentran en src/tests/features en la rama practica2. Todos los escenarios se encuentran también en Qase, en este [enlace](https://app.qase.io/project/PC)
 
 ## Ejecución
 
