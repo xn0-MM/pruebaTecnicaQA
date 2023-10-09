@@ -24,11 +24,6 @@ When('el usuario hace doble click en la tarea {string} e introduce una nueva tar
   await captureScreenshotByStep(this.page, this.attach)
 })
 
-Then('debería ver la tarea en la lista con el título: "Hacer la compra en el Lidl"', async function (this: ICustomWorld) {
-  expect(await this.pom?.homePage.getTituloByPosition(0)).to.equal("Hacer la compra en el Lidl")
-  await captureScreenshotByStep(this.page, this.attach)
-})
-
 Then('la tarea debería mostrarse con el título actualizado: {string}', async function (this: ICustomWorld, nuevaTarea: string) {
   const arrayNuevasTareas = splitArray(nuevaTarea)
   
